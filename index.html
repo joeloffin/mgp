@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meridian Growth Partners — Business Development & Growth Advisory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #11110f;
+      --ink-mid: #4a4642;
+      --ink-light: #8f8a82;
+      --paper: #fbfaf7;
+      --cream: #f3efe6;
+      --rule: #e6e0d6;
+      --red-deep: #8B1E1E;   /* deep, muted burgundy red */
+      --red-muted: #C74C4C;  /* restrained accent use */
+      --red: #8B1E1E;        /* refined brass red */
+      --red-light: #EAD7AE;
+      --paper-92: rgba(251,250,247,0.92);
+      --paper-60: rgba(251,250,247,0.6);
+      --paper-55: rgba(251,250,247,0.55);
+      --paper-50: rgba(251,250,247,0.5);
+      --paper-40: rgba(251,250,247,0.4);
+      --paper-25: rgba(251,250,247,0.25);
+      --paper-08: rgba(251,250,247,0.08);
+      --red-30: rgba(194,161,90,0.3);
+ 
+    
+ 
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 4rem;
+      background: var(--red-deep);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--red-muted);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--paper);
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--red-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--paper);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--red-light); }
+
+    .nav-cta {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.5rem;
+      border: 1px solid var(--paper);
+      color: var(--paper);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--paper); color: var(--red-deep); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10rem 4rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--red);
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      max-width: 14ch;
+      margin-bottom: 2.5rem;
+      color: var(--ink);
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--red);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--ink-mid);
+      max-width: 44ch;
+      line-height: 1.75;
+      margin-bottom: 3.5rem;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .btn-primary {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      background: var(--red-deep);
+      color: var(--paper);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--red-muted); }
+
+    .btn-secondary {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      color: var(--ink-mid);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .btn-secondary:hover { color: var(--ink); }
+
+    .btn-secondary::after {
+      content: '→';
+      transition: transform 0.2s;
+    }
+
+    .btn-secondary:hover::after { transform: translateX(4px); }
+
+    .hero-rule {
+      position: absolute;
+      right: 4rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.35rem;
+    }
+
+    .hero-stat {
+      text-align: right;
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .hero-stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: 0.15rem;
+    }
+
+    .hero-divider {
+      width: 1px;
+      height: 3rem;
+      background: var(--rule);
+      margin: 0.5rem auto;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      overflow: hidden;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 1rem 0;
+      background: var(--cream);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 28s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-item {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-shrink: 0;
+    }
+
+    .marquee-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 7rem 4rem; }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 1.5rem;
+      height: 1px;
+      background: var(--red);
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    .section-heading em {
+      font-style: italic;
+      color: var(--red);
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--paper); }
+
+    .services-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 5rem;
+      gap: 2rem;
+    }
+
+    .services-intro {
+      font-size: 0.95rem;
+      color: var(--ink-mid);
+      max-width: 38ch;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--rule);
+    }
+
+    .service-card {
+      padding: 2.5rem;
+      border-right: 1px solid var(--rule);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .service-card:last-child { border-right: none; }
+
+    .service-card:hover { background: var(--cream); }
+
+    .service-num {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      color: var(--red);
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      color: var(--ink);
+    }
+
+    .service-body {
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .service-arrow {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      font-size: 1.1rem;
+      color: var(--red);
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .service-card:hover .service-arrow {
+      opacity: 1;
+      transform: translate(4px, -4px);
+    }
+
+    /* ── PROCESS ── */
+    .process {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .process .section-label { color: var(--red-light); }
+    .process .section-label::before { background: var(--red-light); }
+    .process .section-heading { color: var(--paper); }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 5rem;
+    }
+
+    .process-step {
+      padding: 3rem;
+      border: 1px solid var(--paper-08);
+      position: relative;
+    }
+
+    .process-step-num {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 300;
+      color: var(--paper-08);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .process-step-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--paper);
+      margin-bottom: 1rem;
+    }
+
+    .process-step-body {
+      font-size: 0.88rem;
+      color: var(--paper-55);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .process-step-tag {
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red-light);
+      border: 1px solid var(--red-30);
+      padding: 0.3rem 0.75rem;
+    }
+
+    /* ── RESULTS ── */
+    .results {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .results-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .stat-box {
+      background: var(--paper);
+      padding: 2.5rem 2rem;
+    }
+
+    .stat-box-num {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-box-num span {
+      color: var(--red);
+    }
+
+    .stat-box-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    /* ── TESTIMONIAL ── */
+    .testimonials {
+      background: var(--paper);
+      padding: 7rem 4rem;
+    }
+
+    .testimonials-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonials-inner .section-label {
+      justify-content: center;
+    }
+
+    .testimonials-inner .section-label::before {
+      display: none;
+    }
+
+    blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2.1rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--ink);
+      margin: 2.5rem 0;
+    }
+
+    .quote-author {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    .quote-rule {
+      width: 3rem;
+      height: 1px;
+      background: var(--red);
+      margin: 1.5rem auto;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      background: var(--ink);
+      color: var(--paper);
+      text-align: center;
+      padding: 8rem 4rem;
+    }
+
+    .cta .section-label { color: var(--red-light); justify-content: center; }
+    .cta .section-label::before { display: none; }
+    .cta .section-heading { color: var(--paper); text-align: center; margin-bottom: 1.5rem; }
+
+    .cta-sub {
+      font-size: 0.95rem;
+      color: var(--paper-50);
+      max-width: 44ch;
+      margin: 0 auto 3rem;
+      font-weight: 300;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .btn-light {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      background: var(--red-deep);
+      color: var(--paper);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-light:hover { background: var(--red-muted); }
+
+    .btn-outline-light {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border: 1px solid var(--red-deep);
+      color: var(--red-light);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline-light:hover { border-color: var(--red-muted); color: var(--paper); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid var(--paper-08);
+      padding: 3rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--paper);
+      text-decoration: none;
+    }
+
+    .footer-logo span { color: var(--red); }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--paper-40);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--paper); }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: var(--paper-25);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+    .delay-4 { animation-delay: 0.6s; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section, .hero { padding: 5rem 1.5rem; }
+      .hero-rule { display: none; }
+      .services-top { flex-direction: column; align-items: flex-start; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { border-right: none; border-bottom: 1px solid var(--rule); }
+      .process-grid { grid-template-columns: 1fr; }
+      .results { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+      .cta-actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Meridian Growth Partners</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="https://calendly.com/offin-joel/30min" class="nav-cta">Schedule a Call</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow fade-up">Business Development & Growth Advisory</div>
+    <h1 class="hero-headline fade-up delay-1">
+      We build the <em>growth engine</em> your company deserves.
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      Meridian Growth Partners specializes in strategic business development with the sole goal of helping our partners grow.
+    </p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="https://calendly.com/offin-joel/30min" class="btn-primary">Start the Conversation</a>
+      <a href="#services" class="btn-secondary">See What We Do</a>
+    </div>
+
+    <div class="hero-rule fade-up delay-4">
+      <div class="hero-stat">
+        <div class="hero-stat-num">2×</div>
+        <div class="hero-stat-label">Average Revenue Multiple</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">180+</div>
+        <div class="hero-stat-label">Engagements Completed</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">7</div>
+        <div class="hero-stat-label">Years of Practice</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">Revenue Operations <span class="marquee-dot"></span> Partnership Strategy <span class="marquee-dot"></span> Market Expansion <span class="marquee-dot"></span> AI Automation <span class="marquee-dot"></span> Pipeline Development <span class="marquee-dot"></span> Go-to-Market Strategy <span class="marquee-dot"></span> Sales Enablement <span class="marquee-dot"></span> Business Intelligence</span>
+      <span class="marquee-item">Revenue Operations <span class="marquee-dot"></span> Partnership Strategy <span class="marquee-dot"></span> Market Expansion <span class="marquee-dot"></span> AI Automation <span class="marquee-dot"></span> Pipeline Development <span class="marquee-dot"></span> Go-to-Market Strategy <span class="marquee-dot"></span> Sales Enablement <span class="marquee-dot"></span> Business Intelligence</span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <div class="services-top">
+      <div>
+        <div class="section-label">Our Services</div>
+        <h2 class="section-heading">What we <em>deliver</em></h2>
+      </div>
+      <p class="services-intro">
+        We don't offer generic advice. Every engagement is a tailored growth partnership — built around your market, your team, and your ambitions.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3 class="service-title">Revenue Growth Systems</h3>
+        <p class="service-body">Paid ads, lead generation engines, cold email and SMS outreach, appointment setting, CRM tuning, and funnel optimization built to convert.</p>
+        <div class="service-arrow">↗</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3 class="service-title">AI & Automation Infrastructure</h3>
+        <p class="service-body">AI chatbots, lead qualification, follow-up automation, sales assistants, internal workflow automation, dashboards, and AI content systems.</p>
+        <div class="service-arrow">↗</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3 class="service-title">Digital Presence Optimization</h3>
+        <p class="service-body">Websites, landing pages, SEO foundations, conversion optimization, and reputation management designed to turn visibility into qualified demand.</p>
+        <div class="service-arrow">↗</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <h3 class="service-title">Strategic Growth Advisory</h3>
+        <p class="service-body">Partnership and referral programs, B2B deal sourcing, local growth strategy, retention systems, and offer positioning consulting.</p>
+        <div class="service-arrow">↗</div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <h3 class="service-title">Outcomes-Led Growth Strategy</h3>
+        <p class="service-body">Our strategy always centers on business outcomes: more leads, more sales, less wasted time, fewer missed opportunities, and stronger retention.</p>
+        <div class="service-arrow">↗</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="process">
+    <div class="section-label">How We Work</div>
+    <h2 class="section-heading">A rigorous, <em>proven</em> process</h2>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-step-num">01</div>
+        <div class="process-step-tag">Discovery</div>
+        <h3 class="process-step-title">Deep Diagnostic</h3>
+        <p class="process-step-body">We spend the first two weeks immersed in your business — studying your pipeline, your team, your market, and your competitors — to build an accurate picture of where growth is being left on the table.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">02</div>
+        <div class="process-step-tag">Strategy</div>
+        <h3 class="process-step-title">Growth Blueprint</h3>
+        <p class="process-step-body">We translate the diagnostic into a prioritized roadmap: which markets, which channels, which partnerships, which systems. Backed by data, not guesswork.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">03</div>
+        <div class="process-step-tag">Execution</div>
+        <h3 class="process-step-title">Embedded Activation</h3>
+        <p class="process-step-body">We don't hand over a deck and disappear. Our stays engaged and executes the work that  moves things forward.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">04</div>
+        <div class="process-step-tag">Scale</div>
+        <h3 class="process-step-title">System & Handoff</h3>
+        <p class="process-step-body">Every engagement ends with a simple self-sustaining system. Keep the growth engine running after our engagement ends. </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" class="results">
+    <div>
+      <div class="section-label">Results</div>
+      <h2 class="section-heading">Numbers that <em>matter</em></h2>
+      <p style="font-size:0.92rem; color:var(--ink-mid); font-weight:300; line-height:1.8; margin-top:1.5rem; max-width:40ch;">
+        Our engagements are measured by one thing: revenue impact. These figures are drawn from clients across SaaS, professional services, B2C, and B2B companies over the last five years.
+      </p>
+      <a href="#contact" class="btn-primary" style="display:inline-block; margin-top:2.5rem;">Let's Talk</a>
+    </div>
+
+    <div class="results-stats">
+      <div class="stat-box">
+        <div class="stat-box-num">$<span>60</span>M</div>
+        <div class="stat-box-label">Revenue Influenced</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-num"><span>68</span>%</div>
+        <div class="stat-box-label">Avg Pipeline Increase</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-num"><span>94</span>%</div>
+        <div class="stat-box-label">Client Retention Rate</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-num"><span>4.1</span>×</div>
+        <div class="stat-box-label">Average ROI</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonials">
+    <div class="testimonials-inner">
+      <div class="section-label">Client Voices</div>
+      <blockquote>“Meridian didn’t just build us a website, they helped us start getting and closing real leads. 
+        Within a few weeks we were seeing growth like never before. These are the people you call when you’re ready for growth.”
+      </blockquote>
+      <div class="quote-rule"></div>
+      <div class="quote-author">Kenneth Lee, Sweathouz Wellness Group</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="cta">
+    <div class="section-label">Get Started</div>
+    <h2 class="section-heading">Ready to <em>grow?</em></h2>
+    <p class="cta-sub">Let's talk about where your business is today and where you want it to be. No pitch — just a conversation.</p>
+    <div class="cta-actions">
+      <a href="https://calendly.com/offin-joel/30min" class="btn-light">Schedule a Discovery Call</a>
+      <a href="mailto:hello@nexuspartners.com" class="btn-outline-light">Send a Brief</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="footer-logo">Meridian Growth Partners</a>
+    <ul class="footer-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="mailto:hello@nexuspartners.com">Contact</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Meridian Growth Partners</span>
+  </footer>
+
+</body>
+</html>
