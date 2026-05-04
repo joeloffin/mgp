@@ -115,15 +115,33 @@
       overflow: hidden;
     }
 
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 7, 6, 0.65);
+      z-index: 1;
+    }
+
     .hero-eyebrow {
       font-size: 0.72rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--red-light);
       margin-bottom: 2rem;
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-eyebrow::before {
@@ -131,7 +149,7 @@
       display: block;
       width: 2rem;
       height: 1px;
-      background: var(--red);
+      background: var(--red-light);
     }
 
     .hero-headline {
@@ -142,27 +160,33 @@
       letter-spacing: -0.01em;
       max-width: 14ch;
       margin-bottom: 2.5rem;
-      color: var(--ink);
+      color: var(--paper);
+      position: relative;
+      z-index: 2;
     }
 
     .hero-headline em {
       font-style: italic;
-      color: var(--red);
+      color: var(--red-light);
     }
 
     .hero-sub {
       font-size: 1rem;
-      color: var(--ink-mid);
+      color: var(--paper-60);
       max-width: 44ch;
       line-height: 1.75;
       margin-bottom: 3.5rem;
       font-weight: 300;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-actions {
       display: flex;
       align-items: center;
       gap: 2rem;
+      position: relative;
+      z-index: 2;
     }
 
     .btn-primary {
@@ -181,7 +205,7 @@
     .btn-secondary {
       font-size: 0.8rem;
       letter-spacing: 0.08em;
-      color: var(--ink-mid);
+      color: var(--paper-60);
       text-decoration: none;
       display: flex;
       align-items: center;
@@ -189,7 +213,7 @@
       transition: color 0.2s;
     }
 
-    .btn-secondary:hover { color: var(--ink); }
+    .btn-secondary:hover { color: var(--paper); }
 
     .btn-secondary::after {
       content: '→';
@@ -207,6 +231,7 @@
       flex-direction: column;
       align-items: flex-end;
       gap: 0.35rem;
+      z-index: 2;
     }
 
     .hero-stat {
@@ -218,21 +243,21 @@
       font-size: 3.5rem;
       font-weight: 300;
       line-height: 1;
-      color: var(--ink);
+      color: var(--paper);
     }
 
     .hero-stat-label {
       font-size: 0.7rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--ink-light);
+      color: var(--paper-50);
       margin-top: 0.15rem;
     }
 
     .hero-divider {
       width: 1px;
       height: 3rem;
-      background: var(--rule);
+      background: var(--paper-25);
       margin: 0.5rem auto;
     }
 
@@ -673,6 +698,11 @@
 
   <!-- HERO -->
   <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="7688003-uhd_3840_2160_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+
     <div class="hero-eyebrow fade-up">Business Development & Growth Advisory</div>
     <h1 class="hero-headline fade-up delay-1">
       We build the <em>growth engine</em> your company deserves.
@@ -719,7 +749,7 @@
         <h2 class="section-heading">What we <em>deliver</em></h2>
       </div>
       <p class="services-intro">
-        We don't offer generic advice. Every engagement is a tailored growth partnership — built around your market, your team, and your ambitions.
+        We work hands-on to design and execute growth strategies across AI, digital presence, partnerships, and go-to-market. Every engagement is built to drive measurable business outcomes and not just ideas.
       </p>
     </div>
 
@@ -727,33 +757,32 @@
 
       <div class="service-card">
         <div class="service-num">01</div>
-        <h3 class="service-title">Revenue Growth Systems</h3>
-        <p class="service-body">Paid ads, lead generation engines, cold email and SMS outreach, appointment setting, CRM tuning, and funnel optimization built to convert.</p>
+        <h3 class="service-title">AI & Automation Systems</h3>
+        <p class="service-body">We identify where AI can actually improve your business and then implement it. From lead qualification and customer support to internal workflows and sales automation, we set up practical AI systems that save time and increase output.</p>
         <div class="service-arrow">↗</div>
       </div>
       <div class="service-card">
         <div class="service-num">02</div>
-        <h3 class="service-title">AI & Automation Infrastructure</h3>
-        <p class="service-body">AI chatbots, lead qualification, follow-up automation, sales assistants, internal workflow automation, dashboards, and AI content systems.</p>
+        <h3 class="service-title">Digital Presence & Conversion</h3>
+        <p class="service-body">We upgrade how your business shows up online. Websites, landing pages, SEO foundations, and conversion flows that are all built to turn traffic into customers.</p>
         <div class="service-arrow">↗</div>
       </div>
       <div class="service-card">
         <div class="service-num">03</div>
-        <h3 class="service-title">Digital Presence Optimization</h3>
-        <p class="service-body">Websites, landing pages, SEO foundations, conversion optimization, and reputation management designed to turn visibility into qualified demand.</p>
+        <h3 class="service-title">Go-To-Market & Revenue Ops</h3>
+        <p class="service-body">We design and operationalize your growth strategy. Positioning, channels, messaging, and funnel structure align into a clear system that consistently drives pipeline and revenue.</p>
         <div class="service-arrow">↗</div>
       </div>
       <div class="service-card">
         <div class="service-num">04</div>
-        <h3 class="service-title">Strategic Growth Advisory</h3>
-        <p class="service-body">Partnership and referral programs, B2B deal sourcing, local growth strategy, retention systems, and offer positioning consulting.</p>
+        <h3 class="service-title">Partnerships & Expansion</h3>
+        <p class="service-body">We help you grow through the right relationships. From B2B partnerships to acquisition strategy and deal sourcing, we identify and execute opportunities that unlock new revenue streams.</p>
         <div class="service-arrow">↗</div>
       </div>
-      
       <div class="service-card">
         <div class="service-num">05</div>
-        <h3 class="service-title">Outcomes-Led Growth Strategy</h3>
-        <p class="service-body">Our strategy always centers on business outcomes: more leads, more sales, less wasted time, fewer missed opportunities, and stronger retention.</p>
+        <h3 class="service-title">Strategic Growth Advisory</h3>
+        <p class="service-body">We act as an embedded partner in your business. Whether you're refining your offer, entering new markets, or scaling operations, we provide hands-on guidance focused on real, measurable growth.</p>
         <div class="service-arrow">↗</div>
       </div>
     </div>
@@ -842,7 +871,7 @@
     <p class="cta-sub">Let's talk about where your business is today and where you want it to be. No pitch — just a conversation.</p>
     <div class="cta-actions">
       <a href="https://calendly.com/offin-joel/30min" class="btn-light">Schedule a Discovery Call</a>
-      <a href="mailto: info@meridiangrowthpartners.llc" class="btn-outline-light">Send a Brief</a>
+      <a href="mailto:hello@nexuspartners.com" class="btn-outline-light">Send a Brief</a>
     </div>
   </section>
 
@@ -853,7 +882,7 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#results">Results</a></li>
-      <li><a href="mailto: info@meridiangrowthpartners.llc">Contact</a></li>
+      <li><a href="mailto:hello@nexuspartners.com">Contact</a></li>
     </ul>
     <span class="footer-copy">© 2026 Meridian Growth Partners</span>
   </footer>
